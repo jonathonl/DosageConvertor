@@ -486,6 +486,8 @@ bool HaplotypeSet::LoadInfoFromVCFfile()
         refAlleleString = record.getRefStr();
 		altAlleleString = record.getAltStr();
 
+        if (name.empty() || name == ".")
+            name = chr + ":" + std::to_string(bp) + ":" + refAlleleString + ":" + altAlleleString;
 
 		if(TrimAlleles)
         {
